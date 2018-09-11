@@ -1,10 +1,11 @@
 import React from 'react';
+import Dashboard from './Dashboard'
 
 
 const App = () => {
   return <div className='app-container'>
       <div>
-        hello
+        <Dashboard />
       </div>
   </div>;
 }
