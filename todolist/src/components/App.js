@@ -3,11 +3,11 @@ import Dashboard from './Dashboard'
 
 
 const App = () => {
-  return <div className='app-container'>
-      <div>
+  return (
+  <div className='app-container'>
         <Dashboard />
-      </div>
-  </div>;
+  </div>
+  );
 }
 
 export default App

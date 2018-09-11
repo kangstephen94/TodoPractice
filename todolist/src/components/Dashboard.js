@@ -7,7 +7,7 @@ class Dashboard extends React.Component {
     this.state = {
       data: [],
       newTodo: '',
-      selected: ' '
+      selected: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -15,10 +15,11 @@ class Dashboard extends React.Component {
     this.handleLeft = this.handleLeft.bind(this);
     this.handleRight = this.handleRight.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   handleClick(todo) {
-    this.setState({ selected: todo })
+    this.setState({ selected: todo }, () => console.log(todo));
   }
 
   handleChange (event) {
@@ -94,17 +95,19 @@ class Dashboard extends React.Component {
    }
 
    delete() {
-     const copyData = this.state.data.slice(0);
      let deleteIndex;
 
-     copyData.forEach( (todo, idx) => {
-      if (todo.title === this.state.selected) {
+     this.state.data.forEach( (todo, idx) => {
+      if (todo.title === this.state.selected.title) {
         deleteIndex = idx;
       }
      })
 
-     const updated = this.state.data.slice(0, deleteIndex).concat(this,state,data,slice(deleteIndex))
-     this.setState({ data: updated })
+     const updated = this.state.data.slice(0, deleteIndex).concat(this.state.data.slice(deleteIndex + 1))
+
+     if (this.state.selected !== '') {
+      this.setState({data: updated, selected: null})
+     }
     }
 
 
