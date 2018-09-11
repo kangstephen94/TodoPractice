@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Dashboard extends React.Component {
   }
 
   handleClick(todo) {
-    this.setState({ selected: todo }, () => console.log(this.state.selected))
+    this.setState({ selected: todo })
   }
 
   handleChange (event) {
@@ -68,7 +69,7 @@ class Dashboard extends React.Component {
      })
 
      const render = incomplete.map((todo, idx) => {
-       return <li key={idx} onClick={ () => this.handleClick(todo)}>{todo.title}</li>
+       return <TodoItem key={idx} handleSelected={this.handleClick} todo={todo} />;
      })
 
      return render;
@@ -80,7 +81,7 @@ class Dashboard extends React.Component {
      })
 
      const render = inProgress.map((todo, idx) => {
-       return <li key={idx} onClick={() => this.handleClick(todo)}>{todo.title}</li>
+       return <TodoItem key={idx} handleSelected={this.handleClick} todo={todo} />;
      })
 
      return render;
@@ -92,7 +93,7 @@ class Dashboard extends React.Component {
      })
 
      const render = completed.map( (todo,idx) => {
-      return <li key={idx} onClick={() => this.handleClick(todo)}>{todo.title}</li>
+       return <TodoItem key={idx} handleSelected={this.handleClick} todo={todo} />;
      })
 
      return render
