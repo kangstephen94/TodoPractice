@@ -93,6 +93,20 @@ class Dashboard extends React.Component {
      })
    }
 
+   delete() {
+     const copyData = this.state.data.slice(0);
+     let deleteIndex;
+
+     copyData.forEach( (todo, idx) => {
+      if (todo.title === this.state.selected) {
+        deleteIndex = idx;
+      }
+     })
+
+     const updated = this.state.data.slice(0, deleteIndex).concat(this,state,data,slice(deleteIndex))
+     this.setState({ data: updated })
+    }
+
 
   render() {
 
@@ -100,6 +114,7 @@ class Dashboard extends React.Component {
         <div className="arrow-container">
           <button onClick={this.handleLeft}>Move Left</button>
           <button onClick={this.handleRight}>Move Right</button>
+          <button onClick={this.delete}>Delete Todo</button>
         </div>
         <form className="todo-form" onSubmit={this.handleSubmit}>
           <label>
