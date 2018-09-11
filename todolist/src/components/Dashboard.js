@@ -109,15 +109,15 @@ class Dashboard extends React.Component {
         </form>
         Dashboard
         <div className="todolist-container">
-          <div>
+          <div className='header-container'>
             <h2>Incomplete</h2>
             <ul className="todo-list">{this.renderIncompleted()}</ul>
           </div>
-          <div>
+        <div className='header-container'>
             <h2>In Progress</h2>
             <ul className="todo-list">{this.renderinProgress()}</ul>
           </div>
-          <div>
+        <div className='header-container'>
             <h2>Complete</h2>
           <ul className='todo-list'>{this.renderCompleted()}</ul>
           </div>

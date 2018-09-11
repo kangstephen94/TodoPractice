@@ -1,11 +1,29 @@
 .todo-list li {
+  position: relative;
   list-style: none;
+  border: 1px solid black;
+  width: 75%;
+  height: 100px;
+}
+
+.todo-list li div {
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+
+.todo-list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
 }
 
 .todolist-container {
   display: flex;
 }
 
-.todolist-container div {
-  margin-right: 50px;
+.header-container {
+  width: 33%;
+  text-align: center;
 }
