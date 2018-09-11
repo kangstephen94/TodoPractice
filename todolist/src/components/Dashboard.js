@@ -68,11 +68,9 @@ class Dashboard extends React.Component {
        return todo.list === 'incompleted'
      })
 
-     const render = incomplete.map((todo, idx) => {
+     return incomplete.map((todo, idx) => {
        return <TodoItem key={idx} handleSelected={this.handleClick} todo={todo} />;
      })
-
-     return render;
    }
 
    renderinProgress () {
@@ -80,11 +78,9 @@ class Dashboard extends React.Component {
        return todo.list === 'inProgress'
      })
 
-     const render = inProgress.map((todo, idx) => {
+     return inProgress.map((todo, idx) => {
        return <TodoItem key={idx} handleSelected={this.handleClick} todo={todo} />;
      })
-
-     return render;
    }
 
    renderCompleted () {
@@ -92,11 +88,9 @@ class Dashboard extends React.Component {
        return todo.list === 'completed'
      })
 
-     const render = completed.map( (todo,idx) => {
+     return completed.map( (todo,idx) => {
        return <TodoItem key={idx} handleSelected={this.handleClick} todo={todo} />;
      })
-
-     return render
    }
 
 
